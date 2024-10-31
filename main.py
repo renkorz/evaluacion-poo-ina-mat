@@ -1,4 +1,4 @@
-import sqlite3
+from mysql.connector import (connection)
 from tabulate import tabulate
 
 # Funciones para sub-menú de Empleados.
@@ -328,11 +328,10 @@ def menu_general(cnx):
 # Función principal
 
 def main():
-    cnx = sqlite3.connect('empresa.db')
-    try:
-        menu_general(cnx)
-    finally:
-        cnx.close()
-        
+    cnx = connection.MySQLConnection(user='root', password='', host='127.0.0.1', database='empresa_test')
+    cursor = cnx.cursor()
+    cursor.execute(menu_general)
+    cnx.close()
+
 if __name__ == "__main__":
     main()
