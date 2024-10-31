@@ -178,11 +178,11 @@ def menu_employee(cnx):
         option = input("Selecciona una opción: ")
         
         if option == "1":
-            add_employee()
+            add_employee(cnx)
         elif option == "2":
-            view_employee()
+            view_employee(cnx)
         elif option == "3":
-            del_employee()
+            del_employee(cnx)
         elif option == "4":
             return
         else:
@@ -199,11 +199,11 @@ def menu_department(cnx):
         option = input("Selecciona una opción: ")
         
         if option == "1":
-            add_department()
+            add_department(cnx)
         elif option == "2":
-            view_deparment()
+            view_deparment(cnx)
         elif option == "3":
-            del_department()
+            del_department(cnx)
         elif option == "4":
             return
         else:
@@ -220,11 +220,11 @@ def menu_supplier(cnx):
         option = input("Selecciona una opción: ")
         
         if option == "1":
-            add_supplier()
+            add_supplier(cnx)
         elif option == "2":
-            view_supplier()
+            view_supplier(cnx)
         elif option == "3":
-            del_supplier()
+            del_supplier(cnx)
         elif option == "4":
             return
         else:
@@ -241,11 +241,11 @@ def menu_client(cnx):
         option = input("Selecciona una opción: ")
         
         if option == "1":
-            add_client()
+            add_client(cnx)
         elif option == "2":
-            view_client()
+            view_client(cnx)
         elif option == "3":
-            del_client()
+            del_client(cnx)
         elif option == "4":
             return
         else:
@@ -262,11 +262,11 @@ def menu_facture(cnx):
         option = input("Selecciona una opción: ")
         
         if option == "1":
-            add_facture()
+            add_facture(cnx)
         elif option == "2":
-            view_facture()
+            view_facture(cnx)
         elif option == "3":
-            del_facture()
+            del_facture(cnx)
         elif option == "4":
             return
         else:
@@ -283,11 +283,11 @@ def menu_product(cnx):
         option = input("Selecciona una opción: ")
         
         if option == "1":
-            add_product()
+            add_product(cnx)
         elif option == "2":
-            view_product()
+            view_product(cnx)
         elif option == "3":
-            del_product()
+            del_product(cnx)
         elif option == "4":
             return
         else:
@@ -326,12 +326,13 @@ def menu_general(cnx):
             print("Opción no válida. Intente de nuevo.")
 
 # Función principal
+
 def main():
-    cnx = sqlite3.connect('empresa_test.connection_db')
+    cnx = sqlite3.connect('empresa.db')
     try:
         menu_general(cnx)
     finally:
         cnx.close()
-
+        
 if __name__ == "__main__":
     main()
