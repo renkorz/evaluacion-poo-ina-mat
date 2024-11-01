@@ -328,9 +328,15 @@ def menu_general(cnx):
 # Función principal
 
 def main():
-    cnx = connection.MySQLConnection(user='root', password='', host='127.0.0.1', database='empresa_test')
+    cnx = connection.MySQLConnection(
+        user='root', 
+        password='', 
+        host='127.0.0.1', 
+        database='empresa_test',
+        port = 3306
+        )
     cursor = cnx.cursor()
-    cursor.execute(menu_general)
+    cursor.execute(menu_general(cnx))
     cnx.close()
 
 if __name__ == "__main__":
